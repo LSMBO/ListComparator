@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+    <appender name="Console" class="org.apache.log4j.ConsoleAppender">
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{yyy-MM-dd HH:mm:ss} %-5p %l - %m%n"/>
+        </layout>
+    </appender>
+    <appender name="RollingFile" class="org.apache.log4j.RollingFileAppender">
+        <param name="file" value="logs/list-comparator.log"/>
+        <param name="MaxFileSize" value="10MB"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{yyy-MM-dd HH:mm:ss} %-5level %logger{36} - %msg%n"/>
+        </layout>
+    </appender>
+    <root>
+        <priority value ="debug" />
+        <appender-ref ref="Console" />
+<!--        <appender-ref ref="RollingFile" />-->
+    </root>
+</log4j:configuration>
